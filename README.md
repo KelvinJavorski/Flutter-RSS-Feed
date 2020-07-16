@@ -17,7 +17,7 @@ And then go to (https://flutter.dev/docs/get-started/editor):
 
 ## Dependencies 
 
-<br>`http: '0.12.1'`</br>
+<br>`http: '0.12.1'`<br>`
 <br>`webfeed: ^0.4.2`</br>
 <br>`cached_network_image: '2.2.0+1'`</br>
 <br>`url_launcher: ^5.2.5`</br>
