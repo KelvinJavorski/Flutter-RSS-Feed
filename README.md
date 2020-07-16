@@ -11,6 +11,7 @@ In order to install and run the application, you must:
 - Add Flutter to your path.
 - Run`flutter doctor` in your terminal.
 
+
 - If you're using **Android Studio**, set the **Flutter SDK**.
 - Create a **Virtual Device** for simulation in the **Device Manager** in **Android Studio**.
 
