@@ -7,9 +7,9 @@ Hello! This is a flutter code that implements a **RSS Feed** into a listView, so
 In order to install and run the application, you must:
 
 - Go to: (https://flutter.dev/docs/get-started/install) and:
-- Download and install **Flutter SKD**.
-- Add Flutter to your path.
-- Run`flutter doctor` in your terminal.
+-- Download and install **Flutter SKD**.
+-- Add Flutter to your path.
+-- Run`flutter doctor` in your terminal.
 
 
 - If you're using **Android Studio**, set the **Flutter SDK**.
