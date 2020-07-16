@@ -4,9 +4,9 @@ import 'package:http/http.dart' as http;
 import 'package:url_launcher/url_launcher.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
+
 class RSSPage extends StatefulWidget{
-  RSSPage() : super();
-  final String title = 'RSS Feed Page';
+  final String titleScreen = 'RSS Feed Page';
   @override
   RSSPageState createState() => RSSPageState();
 }
@@ -14,8 +14,8 @@ class RSSPage extends StatefulWidget{
 class RSSPageState extends State<RSSPage>{
   static const String FEED_URL = 'https://www.nasa.gov/rss/dyn/lg_image_of_the_day.rss';
   RssFeed _feed;
-
   String _title;
+
   static const String loadingFeedMsg = "Loading Feed...";
   static const String feedLoadErrorMsg = "Error Loading Feed.";
   static const String feedOpenErrorMsg = 'Error Opening Feed.';
@@ -23,13 +23,13 @@ class RSSPageState extends State<RSSPage>{
 
   GlobalKey<RefreshIndicatorState> _refreshKey;
 
-  updateTitle(title){
+  void updateTitle(title){
     setState(() {
       _title = title;
     });
   }
 
-  updateFeed(feed){
+  void updateFeed(feed){
     setState(() {
       _feed = feed;
     });
@@ -76,11 +76,11 @@ class RSSPageState extends State<RSSPage>{
     // TODO: implement initState
     super.initState();
     _refreshKey = GlobalKey<RefreshIndicatorState>();
-    updateTitle(widget.title);
+    updateTitle(widget.titleScreen);
     load();
   }
 
-  title(title){
+  Text title(title){
     return Text(
       title,
       style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w500),
@@ -89,7 +89,7 @@ class RSSPageState extends State<RSSPage>{
     );
   }
 
-  subtitle(subTitle){
+  Text subtitle(subTitle){
     return Text(
       subTitle,
       style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.w100),
@@ -98,7 +98,7 @@ class RSSPageState extends State<RSSPage>{
     );
   }
 
-  thumbnail(imageUrl){
+  Padding thumbnail(imageUrl){
     return Padding(
       padding: EdgeInsets.only(left: 15.0),
       child: CachedNetworkImage(
@@ -112,7 +112,7 @@ class RSSPageState extends State<RSSPage>{
     );
   }
 
-  rightIcon(){
+  Icon rightIcon(){
     return Icon(
       Icons.keyboard_arrow_right,
       color: Colors.grey,
@@ -120,10 +120,10 @@ class RSSPageState extends State<RSSPage>{
     );
   }
 
-  list(){
+  ListView list(){
     return ListView.builder(
-      itemCount: 5,
-//      itemCount: _feed.items.length,
+//      itemCount: 5,
+      itemCount: _feed.items.length,
       itemBuilder: (BuildContext context, int index){
         final item = _feed.items[index];
         return ListTile(
@@ -138,11 +138,11 @@ class RSSPageState extends State<RSSPage>{
     );
   }
 
-  isFeedEmpty(){
+  bool isFeedEmpty(){
     return null == _feed || null == _feed.items;
   }
 
-  body(){
+  Widget body(){
     return isFeedEmpty()
         ? Center(child: CircularProgressIndicator(),
           )
